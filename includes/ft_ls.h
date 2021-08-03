@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chrindex.c                                      :+:      :+:    :+:   */
+/*   ft_ls.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/05 18:30:53 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/03 15:41:06 by cclaude          ###   ########.fr       */
+/*   Created: 2021/08/03 15:12:29 by cclaude           #+#    #+#             */
+/*   Updated: 2021/08/03 16:23:22 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_LS_H
+# define FT_LS_H
 
-int	ft_chrindex(int c, char *str)
-{
-	int	i;
+# include "libft.h"
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == c)
-			return (i);
-		i++;
-	}
-	return (-1);
-}
+# define UPPERR 16
+# define LOWERA 8
+# define LOWERL 4
+# define LOWERR 2
+# define LOWERT 1
+
+void read_option (unsigned int *options, char *arg);
+
+#endif

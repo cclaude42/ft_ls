@@ -1,0 +1,60 @@
+###################################
+# ft_ls
+###################################
+
+NAME = ft_ls
+
+CC = clang
+
+CFLAGS = -Wall -Wextra -Werror
+
+INCLUDES = -I includes -I libft/includes
+
+LIBFT = libft/libft.a
+
+LFT = -L libft/ -lft
+
+SRC = $(addsuffix .c, $(addprefix srcs/, ft_ls options)) \
+
+OBJ = $(SRC:c=o)
+
+###################################
+# Methods
+###################################
+
+all: $(NAME)
+
+$(NAME): $(LIBFT) $(OBJ)
+	@echo "\033[0;32m\n\nCompiling ft_ls..."
+	@$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJ) $(LFT)
+	@echo "\n\033[0mDone !"
+
+%.o: %.c
+	@printf "\033[0;33mGenerating ft_ls objects... %-20.20s\r" $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(LIBFT):
+	@make -C libft --no-print-directory
+
+clean:
+	@make clean -C libft --no-print-directory
+	@echo "\033[0;31m\nDeleting objects..."
+	@rm -f $(OBJ)
+	@echo "\033[0m"
+
+fclean:
+	@make fclean -C libft --no-print-directory
+	@echo "\033[0;31m\nDeleting objects..."
+	@rm -f $(OBJ)
+	@echo "\nDeleting executable..."
+	@rm -f $(NAME)
+	@echo "\033[0m"
+
+re: fclean all
+
+bonus: $(OBJB)
+	@echo "\033[0;32m\n\nCompiling checker..."
+	@$(CC) $(CFLAGS) -I $(INCLUDES) -o $(NAMEB) $(OBJB)
+	@echo "\n\033[0mDone !"
+
+.PHONY: clean fclean re bonus

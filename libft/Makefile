@@ -64,23 +64,23 @@ $(NAME): $(OBJ)
 	@echo "\033[0;32m\n\nCompiling libft..."
 	@ar rc $(NAME) $^
 	@ranlib $(NAME)
-	@echo "\n\033[0mDone !"
+	@echo "\033[0m"
 
 %.o: %.c
 	@printf "\033[0;33mGenerating libft objects... %-30.30s\r" $@
 	@$(CC) $(CFLAGS) -I $(INCLUDES) -c $< -o $@
 
 clean:
-	@echo "\033[0;31m\nDeleting objects..."
+	@echo "\033[0;31m\nDeleting libft objects..."
 	@rm -f $(OBJ)
 	@echo "\033[0m"
 
 fclean:
-	@echo "\033[0;31m\nDeleting objects..."
+	@echo "\033[0;31m\nDeleting libft objects..."
 	@rm -f $(OBJ)
 	@echo "\nDeleting library..."
 	@rm -f $(NAME)
-	@echo "\033[0m"
+	@echo -n "\033[0m"
 
 re: fclean all
 

@@ -6,47 +6,38 @@
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:50:42 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/02 19:34:45 by cclaude          ###   ########.fr       */
+/*   Updated: 2021/08/03 16:30:23 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-
-
-void read_opt (options *opt, char *arg)
+void single_ls (char *path, unsigned int options)
 {
-	if (arg[0] == '-' && arg[1] == '-')
-	{
-		if (ft_strcmp(arg, "--help") == 0)
-			print_help();
-		else
-			print_unrecognized(arg);
-	}
-	else if (arg[0] == '-')
-	{
-		for (int i = 1 ; arg[i] ; i++)
-		{
-			if (ft_isin(arg[i], "Ralrt"))
-				set_opt(opt, arg[i]);
-			else
-				print_invalid(arg[i]);
-		}
-	}
+	
 }
+
+// void multiple_ls (char **av, unsigned int ac, unsigned int options)
+// {
+//
+// }
 
 int main (int ac, char **av)
 {
-	options	opt;
+	unsigned int	options = 0;
+	unsigned int	count = 0;
 
-	ft_bzero(&opt, sizeof(opt));
-	for (int i = 0 ; i < ac ; i++)
+	for (int i = 1 ; i < ac ; i++)
 	{
 		if (av[i][0] == '-')
-			read_opt(&opt, av[i]);
+			read_option(&options, av[i]);
+		else
+			av[count++] = av[i];
 	}
-	for (int i = 0 ; i < ac ; i++)
-	{
-
-	}
+	if (count == 0)
+		av[count++] = ".";
+	// if (count > 1 || options & UPPERR)
+	// 	multiple_ls(av, count, options);
+	// else
+		single_ls(av[0], options);
 }
