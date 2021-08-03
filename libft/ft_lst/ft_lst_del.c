@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lst_del.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 15:49:16 by cclaude           #+#    #+#             */
-/*   Updated: 2019/10/18 14:46:50 by cclaude          ###   ########.fr       */
+/*   Created: 2019/10/11 15:49:10 by cclaude           #+#    #+#             */
+/*   Updated: 2021/08/03 19:11:29 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lst_del (node *nil, node *nd)
 {
-	if (!lst || !f)
+	if (!nil || !nd)
 		return ;
-	f(lst->content);
-	ft_lstiter(lst->next, f);
+	nd->prev->next = nd->next;
+	nd->next->prev = nd->prev;
+	free(nd);
 }

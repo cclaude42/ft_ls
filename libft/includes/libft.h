@@ -6,7 +6,7 @@
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:32:51 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/02 19:56:47 by cclaude          ###   ########.fr       */
+/*   Updated: 2021/08/03 21:39:24 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,15 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-typedef struct		s_list
+# define FREE 1
+# define DONTFREE 0
+
+typedef struct		s_node
 {
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+	void			*data;
+	struct s_node	*prev;
+	struct s_node	*next;
+}					node;
 
 int					ft_chrcount(int c, char *str);
 int					ft_chrindex(int c, char *str);
@@ -38,16 +42,21 @@ int					ft_isprint(int c);
 int					ft_isspace(int c);
 int					ft_isspacenl(int c);
 
-void				ft_lstadd_back(t_list **alst, t_list *new);
-void				ft_lstadd_front(t_list **alst, t_list *new);
-void				ft_lstclear(t_list **lst, void (*del)(void*));
-void				ft_lstdelone(t_list *lst, void (*del)(void*));
-void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void*),
-					void (*del)(void *));
-t_list				*ft_lstnew(void *content);
-int					ft_lstsize(t_list *lst);
+node				*ft_lst_back (node *nil);
+void				ft_lst_clear (node *nil);
+void				ft_lst_del (node *nil, node *nd);
+void				ft_lst_delhard (node *nil, node *nd);
+node				*ft_lst_empty (node *lst);
+node				*ft_lst_front (node *nil);
+node				*ft_lst_init (void);
+void				ft_lst_iter (node *nil, void (*f)(void *));
+node				*ft_lst_min (node *lst, int (*cmp)(void *, void *));
+node				*ft_lst_new (void *data);
+void				ft_lst_pushback (node *nil, node *new);
+void				ft_lst_pushfront (node *nil, node *new);
+void				ft_lst_rev (node *lst);
+int					ft_lst_size (node *nil);
+node				*ft_lst_sort (node *lst, int (*cmp)(void *, void *));
 
 int					ft_nbrlen(long n);
 int					ft_hexlen(long n);
@@ -83,6 +92,7 @@ char				*ft_strchr(const char *s, int c);
 int					ft_strcmp(const char *s1, const char *s2);
 char				*ft_strdup(const char *s1);
 char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoinf (char *s1, int f1, char *s2, int f2);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlen(const char *s);

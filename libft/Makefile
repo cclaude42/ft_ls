@@ -22,7 +22,7 @@ FTIS = alnum alpha ascii digit print space spacenl
 
 FTSKIP = space spacenl char chars
 
-FTLST = add_back add_front clear delone iter last map new size
+FTLST = back clear del front init iter min new pushback pushfront rev size sort
 
 FTMATH = nbrlen hexlen baselen power
 
@@ -30,7 +30,7 @@ FTMEM = bzero calloc memccpy memchr memcmp memcpy memdel memmove memset
 
 FTPUT = char endl nbr str char_fd endl_fd nbr_fd str_fd
 
-FTSTR = chr cmp dup join lcat lcpy len mapi ncmp nstr rchr trim
+FTSTR = chr cmp dup join joinf lcat lcpy len mapi ncmp nstr rchr trim
 
 FTSUB = ft_str/ft_substr ft_str/ft_split
 
@@ -42,7 +42,7 @@ FTPRF = flagger branch_csp branch_duxo put_c put_s put_du put_o put_x put_p
 
 SRC = $(addsuffix .c, $(addprefix ft_chr/ft_chr, $(FTCHR))) \
 	$(addsuffix .c, $(addprefix ft_chr/ft_is, $(FTIS))) \
-	$(addsuffix .c, $(addprefix ft_lst/ft_lst, $(FTLST))) \
+	$(addsuffix .c, $(addprefix ft_lst/ft_lst_, $(FTLST))) \
 	$(addsuffix .c, $(addprefix ft_math/ft_, $(FTMATH))) \
 	$(addsuffix .c, $(addprefix ft_mem/ft_, $(FTMEM))) \
 	$(addsuffix .c, $(addprefix ft_put/ft_put, $(FTPUT))) \

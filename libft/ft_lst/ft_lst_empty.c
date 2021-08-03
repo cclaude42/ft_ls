@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lst_empty.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 15:50:09 by cclaude           #+#    #+#             */
-/*   Updated: 2019/10/16 16:06:43 by cclaude          ###   ########.fr       */
+/*   Created: 2019/10/11 15:49:22 by cclaude           #+#    #+#             */
+/*   Updated: 2021/08/03 21:39:00 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+node	*ft_lst_empty (node *lst)
 {
-	int		count;
-
-	count = 0;
-	while (lst != NULL)
-	{
-		lst = lst->next;
-		count++;
-	}
-	return (count);
+	return (lst->next == lst);
 }

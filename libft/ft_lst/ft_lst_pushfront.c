@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lst_pushfront.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 15:49:04 by cclaude           #+#    #+#             */
-/*   Updated: 2019/10/16 16:17:50 by cclaude          ###   ########.fr       */
+/*   Created: 2019/10/11 15:48:56 by cclaude           #+#    #+#             */
+/*   Updated: 2021/08/03 18:38:30 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lst_pushfront (node *nil, node *new)
 {
-	t_list	*current;
-	t_list	*prev;
-
-	if (*lst == NULL || !(current = *lst) || !del)
+	if (!nil || !new)
 		return ;
-	while (current->next != NULL)
-	{
-		prev = current;
-		del(current->content);
-		free(current);
-		current = prev->next;
-	}
-	del(current->content);
-	free(current);
-	*lst = NULL;
+	new->prev = nil;
+	new->next = nil->next;
+	nil->next->prev = new;
+	nil->next = new;
 }

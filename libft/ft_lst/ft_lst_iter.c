@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lst_iter.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 15:49:10 by cclaude           #+#    #+#             */
-/*   Updated: 2019/10/16 16:10:18 by cclaude          ###   ########.fr       */
+/*   Created: 2019/10/11 15:49:16 by cclaude           #+#    #+#             */
+/*   Updated: 2021/08/03 18:03:05 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lst_iter (node *nil, void (*f)(void *))
 {
-	if (lst == NULL || del == NULL)
+	node	*current;
+
+	if (!nil || !f)
 		return ;
-	del(lst->content);
-	free(lst);
+	current = nil->next;
+	while (current != nil)
+	{
+		f(current->data);
+		current = current->next;
+	}
 }

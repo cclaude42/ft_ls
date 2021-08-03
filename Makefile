@@ -38,23 +38,18 @@ $(LIBFT):
 
 clean:
 	@make clean -C libft --no-print-directory
-	@echo "\033[0;31m\nDeleting objects..."
+	@echo "\033[0;31m\nDeleting ft_ls objects..."
 	@rm -f $(OBJ)
 	@echo "\033[0m"
 
 fclean:
 	@make fclean -C libft --no-print-directory
-	@echo "\033[0;31m\nDeleting objects..."
+	@echo "\033[0;31m\nDeleting ft_ls objects..."
 	@rm -f $(OBJ)
-	@echo "\nDeleting executable..."
+	@echo "\nDeleting ft_ls executable..."
 	@rm -f $(NAME)
 	@echo "\033[0m"
 
 re: fclean all
 
-bonus: $(OBJB)
-	@echo "\033[0;32m\n\nCompiling checker..."
-	@$(CC) $(CFLAGS) -I $(INCLUDES) -o $(NAMEB) $(OBJB)
-	@echo "\n\033[0mDone !"
-
-.PHONY: clean fclean re bonus
+.PHONY: clean fclean re
