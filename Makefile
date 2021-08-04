@@ -14,7 +14,7 @@ LIBFT = libft/libft.a
 
 LFT = -L libft/ -lft
 
-FILES = ft_ls options print
+FILES = ft_ls options print_l print utils
 
 SRC = $(addsuffix .c, $(addprefix srcs/, $(FILES))) \
 
