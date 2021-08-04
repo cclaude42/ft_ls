@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_front.c                                     :+:      :+:    :+:   */
+/*   ft_lst_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 15:49:22 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/04 17:58:53 by cclaude          ###   ########.fr       */
+/*   Created: 2019/10/11 15:49:04 by cclaude           #+#    #+#             */
+/*   Updated: 2021/08/04 17:57:03 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-node	*ft_lst_front (node *lst)
+void	ft_lst_free (node *lst)
 {
-	return (lst->next);
+	ft_lst_clear(lst);
+	free(lst);
 }

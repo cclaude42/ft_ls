@@ -6,20 +6,20 @@
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:50:09 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/03 18:24:59 by cclaude          ###   ########.fr       */
+/*   Updated: 2021/08/04 17:59:17 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lst_size (node *nil)
+int	ft_lst_size (node *lst)
 {
 	node	*current;
 	int		count;
 
-	current = nil->next;
+	current = lst->next;
 	count = 0;
-	while (current != nil)
+	while (current != lst)
 	{
 		current = current->next;
 		count++;

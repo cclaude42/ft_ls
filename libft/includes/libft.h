@@ -6,7 +6,7 @@
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:32:51 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/03 21:39:24 by cclaude          ###   ########.fr       */
+/*   Updated: 2021/08/04 18:01:06 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,21 @@ int					ft_isprint(int c);
 int					ft_isspace(int c);
 int					ft_isspacenl(int c);
 
-node				*ft_lst_back (node *nil);
-void				ft_lst_clear (node *nil);
-void				ft_lst_del (node *nil, node *nd);
-void				ft_lst_delhard (node *nil, node *nd);
-node				*ft_lst_empty (node *lst);
-node				*ft_lst_front (node *nil);
+node				*ft_lst_back (node *lst);
+void				ft_lst_clear (node *lst);
+void				ft_lst_del (node *lst, node *nd);
+void				ft_lst_delhard (node *lst, node *nd);
+int					ft_lst_empty (node *lst);
+void				ft_lst_free (node * lst);
+node				*ft_lst_front (node *lst);
 node				*ft_lst_init (void);
-void				ft_lst_iter (node *nil, void (*f)(void *));
+void				ft_lst_iter (node *lst, void (*f)(void *));
 node				*ft_lst_min (node *lst, int (*cmp)(void *, void *));
 node				*ft_lst_new (void *data);
-void				ft_lst_pushback (node *nil, node *new);
-void				ft_lst_pushfront (node *nil, node *new);
+void				ft_lst_pushback (node *lst, node *new);
+void				ft_lst_pushfront (node *lst, node *new);
 void				ft_lst_rev (node *lst);
-int					ft_lst_size (node *nil);
+int					ft_lst_size (node *lst);
 node				*ft_lst_sort (node *lst, int (*cmp)(void *, void *));
 
 int					ft_nbrlen(long n);

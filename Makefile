@@ -14,7 +14,9 @@ LIBFT = libft/libft.a
 
 LFT = -L libft/ -lft
 
-SRC = $(addsuffix .c, $(addprefix srcs/, ft_ls options)) \
+FILES = ft_ls options print
+
+SRC = $(addsuffix .c, $(addprefix srcs/, $(FILES))) \
 
 OBJ = $(SRC:c=o)
 

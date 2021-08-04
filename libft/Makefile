@@ -22,7 +22,7 @@ FTIS = alnum alpha ascii digit print space spacenl
 
 FTSKIP = space spacenl char chars
 
-FTLST = back clear del front init iter min new pushback pushfront rev size sort
+FTLST = back clear del delhard empty free front init iter min new pushback pushfront rev size sort
 
 FTMATH = nbrlen hexlen baselen power
 

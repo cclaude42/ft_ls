@@ -6,13 +6,13 @@
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:49:22 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/03 21:39:00 by cclaude          ###   ########.fr       */
+/*   Updated: 2021/08/04 18:00:54 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-node	*ft_lst_empty (node *lst)
+int ft_lst_empty (node *lst)
 {
 	return (lst->next == lst);
 }

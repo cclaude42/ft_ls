@@ -6,18 +6,18 @@
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:48:56 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/03 18:38:30 by cclaude          ###   ########.fr       */
+/*   Updated: 2021/08/04 17:59:10 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lst_pushfront (node *nil, node *new)
+void	ft_lst_pushfront (node *lst, node *new)
 {
-	if (!nil || !new)
+	if (!lst || !new)
 		return ;
-	new->prev = nil;
-	new->next = nil->next;
-	nil->next->prev = new;
-	nil->next = new;
+	new->prev = lst;
+	new->next = lst->next;
+	lst->next->prev = new;
+	lst->next = new;
 }

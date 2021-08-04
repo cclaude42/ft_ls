@@ -6,7 +6,7 @@
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 15:12:29 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/04 17:15:01 by cclaude          ###   ########.fr       */
+/*   Updated: 2021/08/04 18:05:37 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 typedef struct		s_max
 {
-	unsigned int	sztot;
+	unsigned int	bltot;
 	unsigned int	lnmax;
 	unsigned int	pwmax;
 	unsigned int	grmax;
@@ -38,5 +38,9 @@ typedef struct		s_max
 }					max;
 
 void read_option (unsigned int *options, char *arg);
+
+void ft_ls (char *path, unsigned int options);
+
+void print_dir (node *lst, char *path, unsigned int options);
 
 #endif
