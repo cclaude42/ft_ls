@@ -6,7 +6,7 @@
 /*   By: cclaude <cclaude@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:50:42 by cclaude           #+#    #+#             */
-/*   Updated: 2021/08/04 22:42:03 by cclaude          ###   ########.fr       */
+/*   Updated: 2021/11/22 16:24:19 by cclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void parse_dir (char *path, unsigned int options, int *ret)
 	dir = opendir(path);
 	if (!dir)
 	{
-		ft_printf("ls: cannot open directory \'%s\': Permission denied\n", path);
+		ft_printf("ft_ls: cannot open directory \'%s\': Permission denied\n", path);
 		*ret = 2;
 		return ;
 	}
